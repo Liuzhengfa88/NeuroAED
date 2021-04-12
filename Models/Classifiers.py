@@ -20,22 +20,19 @@ class Classifiers(object):
         if hyperTune:
             #3 models KNN SCM and LR
             self.models={
-                #    'OneClassSVM':[OneClassSVM(dataset,'rbf', 0.1), 0],\
-                    #    'SRC':[Dictionary(dataset,20,k), 0],\
-                        'KSVD':[ksvd(dataset,20,k),0],\
-                        #'AutoEncoder':[SparseAutoencoder(dataset,18*14*5,18*14)]
- 			            # 'ODL':[OnlineDictionaryLearning(dataset,k,100,100)],\
+                    'OneClassSVM':[OneClassSVM(dataset,'rbf', 0.1), 0],\
+                    'SRC':[Dictionary(dataset,20,k), 0],\
+                    'KSVD':[ksvd(dataset,20,k),0],\
+ 			         'ODL':[OnlineDictionaryLearning(dataset,k,100,100)],\
                         }
-            # for name,candidate_hyperParam in self.models.items():
-            #     #update each classifier after training and tuning
-            #     self.models[name] = self.train(candidate_hyperParam[0],feature_name,model_dir,name)
-            # print ('\nTraining process finished\n\n\n')
+            for name,candidate_hyperParam in self.models.items():
+                #update each classifier after training and tuning
+                self.models[name] = self.train(candidate_hyperParam[0],feature_name,model_dir,name)
+            print ('\nTraining process finished\n\n\n')
             
     
     def train(self,model,feature_name,model_dir,name):
         model.train()
-
-        
         model_directory=os.path.join(model_dir)
         if not os.path.exists(model_directory):
             os.makedirs(model_directory) 
