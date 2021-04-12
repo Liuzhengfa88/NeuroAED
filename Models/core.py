@@ -22,9 +22,6 @@ dictKvalue={'TB1':40,'TB2':30,'TB3':50,\
                         'Two Orientation':20,\
                       }
 
-# json_str = json.dumps(test_dict)
-# with open('test_data.json', 'w') as json_file:
-#     json_file.write(json_str)
 def times2json(dicdata,filename):
     if isinstance(dicdata, dict):
         json_str = json.dumps(dicdata)
@@ -34,17 +31,9 @@ def times2json(dicdata,filename):
         raise TypeError('invalid type of results')
    
 
-# def times2json(dicdata,filename):
-#     if isinstance(dicdata, dict):
-#         json.dump(dicdata, filename)
-#     else:
-#         raise TypeError('invalid type of results')
-
 
 def main ():
     directory='/xxxx/features'
-
-    # feature_names=[name for name in os.listdir(directory) if name== '100' or name == '150' or name== '200' or name== '250' or name == '300' or name== '350' or name== '400']
     feature_names=[name for name in os.listdir(directory) if name == '200']
     feature_names.sort(reverse=True)
     for feature_name in feature_names:
