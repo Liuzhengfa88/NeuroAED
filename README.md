@@ -36,4 +36,5 @@ We extract the optical flow information from training sample and select activate
 ### Running:
 
     a. Generate EMST features using feature_generation.cpp
+    b. Get the Slice_level and Pixel_level values using /Models/core.py
 
