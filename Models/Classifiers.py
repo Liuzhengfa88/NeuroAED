@@ -23,7 +23,7 @@ class Classifiers(object):
                     'OneClassSVM':[OneClassSVM(dataset,'rbf', 0.1), 0],\
                     'SRC':[Dictionary(dataset,20,k), 0],\
                     'KSVD':[ksvd(dataset,20,k),0],\
- 			         'ODL':[OnlineDictionaryLearning(dataset,k,100,100)],\
+ 		    'ODL':[OnlineDictionaryLearning(dataset,k,100,100)],\
                         }
             for name,candidate_hyperParam in self.models.items():
                 #update each classifier after training and tuning
